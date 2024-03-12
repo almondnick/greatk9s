@@ -18,15 +18,15 @@ const userSchema = new Schema({
         required: true,
         unique: true
       },
-      petName: {
+    petName: {
         type: String,
         required: false,
       },
-      phoneNumber: {
+    phoneNumber: {
         type: String,
         required: false,
       },
-      password: {
+    password: {
         type: String,
         required: true,
         minlength: 5
