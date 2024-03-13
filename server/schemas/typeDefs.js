@@ -14,10 +14,14 @@ type Auth {
     user: User
 }
 
+type Query {
+    me: User
+}
+
 type Mutation {
-    addUser (firstName: String!, lastName: String!, email: String!, password: String!, phoneNumber, petName): Auth
+    addUser (firstName: String!, lastName: String!, email: String!, password: String!, phoneNumber: String, petName: String): Auth
     login(email: String!, password: String!): Auth
 }
 `;
 
-module.export = typeDefs
+module.exports = typeDefs
