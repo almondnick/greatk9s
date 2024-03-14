@@ -1,45 +1,23 @@
-import { Link } from 'react-router-dom';
-import Auth from '../utils/auth';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
 const Header = () => {
-  
   return (
-    <header>
-      <nav class="navbar">
-            <ul>
-                <li>
-                  <Link to="/">
-                    <h1>Home</h1>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/aboutus">
-                    <h1>About Us</h1>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/booknow">
-                    <h1>BookNow</h1>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/services">
-                    <h1>Services</h1>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/login">
-                    <h1>Login</h1>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/signup">
-                     <h1>Sign Up!</h1>
-                  </Link>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <>
+      <Navbar bg="light" data-bs-theme="light">
+        <Container>
+          <Navbar.Brand href="/">Great K9s</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#features">Services</Nav.Link>
+            <Nav.Link href="#pricing">About Us</Nav.Link>
+            <Nav.Link href="/booknow">Book Now</Nav.Link>
+            <Nav.Link href="/login">Login</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+      </>
   );
 };
 
