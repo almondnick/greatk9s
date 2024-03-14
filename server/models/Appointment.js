@@ -2,8 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const appointmentSchema = new Schema ({
     description: {
-        type: Schema.Types.ObjectId,
-        ref: 'Service',
+        type: String,
         required: true,
     },
 
