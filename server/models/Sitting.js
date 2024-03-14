@@ -3,16 +3,20 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const sittingSchema = new Schema({
-    user: {
-        type: mongoose.schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
-    date: {
+
+    appointmentStartDate: {
         type: Date,
+        required: true,
+    },
+    appointmentEndDate: {
+        type: Date,
+        required: true,
+    },
+    startTime: {
+        type: String,
         required: true
     },
-    time: {
+    endTime: {
         type: String,
         required: true
     },
