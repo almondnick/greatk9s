@@ -1,7 +1,5 @@
 # Great K9s
 
-# Great K9s
-
 ## Table of Contents
 
  - [Description](#description)
