@@ -1,12 +1,9 @@
+import Welcome from "../components/Welcome";
 
 const Home = () => {
 
   return (
-    <main>
-      <div>
-        <h1>My Homepage!</h1>
-      </div>
-    </main>
+    < Welcome />
   );
 };
 

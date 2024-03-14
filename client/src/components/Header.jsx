@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Auth from '../utils/auth';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+
 
 const Header = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [username, setProfile] = useState('');
-
   useEffect(() => {
 
     setLoggedIn(Auth.loggedIn());
@@ -25,57 +26,22 @@ const Header = () => {
   };
 
   return (
-    <header>
-      <nav className="navbar">
-        <ul>
-          <li>
-            <Link to="/">
-              <h1>Home</h1>
-            </Link>
-          </li>
-          <li>
-            <Link to="/aboutus">
-              <h1>About Us</h1>
-            </Link>
-          </li>
-          <li>
-            <Link to="/booknow">
-              <h1>BookNow</h1>
-            </Link>
-          </li>
-          <li>
-            <Link to="/services">
-              <h1>Services</h1>
-            </Link>
-          </li>
-          {loggedIn ? (
-            <>
-              <li>
-                <span>Hello, {username}</span>
-              </li>
-              <li>
-                <button onClick={logout}>
-                  <h1>Logout</h1>
-                </button>
-              </li>
-            </>
-          ) : (
-            <>
-              <li>
-                <Link to="/login">
-                  <h1>Login</h1>
-                </Link>
-              </li>
-              <li>
-                <Link to="/signup">
-                  <h1>Sign Up!</h1>
-                </Link>
-              </li>
-            </>
-          )}
-        </ul>
-      </nav>
-    </header>
+      <Navbar bg="dark" data-bs-theme="dark">
+        <Container>
+          <Navbar.Brand href="/">Great K9s</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/services">Services</Nav.Link>
+            <Nav.Link href="/aboutus">About Us</Nav.Link>
+            <Nav.Link href="/booknow">Book Now</Nav.Link>
+            {loggedIn ? (
+              <Nav.Link onClick={logout}>Logout</Nav.Link>
+            ) : (
+              <Nav.Link href='/login'>Login / Sign Up</Nav.Link>
+            )}
+          </Nav>
+        </Container>
+      </Navbar>
   );
 };
 
