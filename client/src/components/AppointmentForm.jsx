@@ -73,6 +73,14 @@ function AppointmentForm() {
         </Dropdown>
         </Form.Group>
       </Row>
+      <Form.Group as={Col} md="4" controlId="validationCustom01">
+          <Form.Label>Start Date</Form.Label>
+          <Form.Control
+            required
+            type="date"
+          />
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        </Form.Group>
       <Button type="submit">Submit form</Button>
     </Form>
   );

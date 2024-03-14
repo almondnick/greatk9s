@@ -1,3 +1,4 @@
+import About from "../components/About";
 
 const AboutUs = () => {
 
@@ -5,6 +6,7 @@ const AboutUs = () => {
       <main>
         <div>
           <h1>About Us!</h1>
+          < About/>
         </div>
       </main>
     );
