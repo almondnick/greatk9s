@@ -11,18 +11,43 @@ import TimePicker from 'react-bootstrap-time-picker';
 function AppointmentForm() {
   const [validated, setValidated] = useState(false);
 
-  const [service, setService] = useState('Select Another Service'); // Service is selected on dropdown
+  const [service, setService] = useState('Select Service'); // Service is selected on dropdown
   const [serviceCheck, setServiceCheck] = useState(true);
 
 
   const handleSubmit = (event) => {
+
+
+    console.log("FORM SUBMITTED!");
+
+    if(service === 'Sitting'){ // Fill out for Dog Sitting stuffs
+
+      console.log("Sitting");
+    } 
+
+
+    else if (service == "Training") { // Fill out for Dog Training stuffs
+
+
+
+    }
+
+
+
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
+
       event.stopPropagation();
+
     }
 
+
     setValidated(true);
+
+
+
+
   };
 
   const checkService = (e) => {
@@ -38,7 +63,7 @@ function AppointmentForm() {
   return (
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
       <Row className="mb-3">
-        <Form.Group as={Col} md="4" controlId="validationCustom02">
+        <Form.Group as={Col} md="4" controlId="validationCustom01">
           <Form.Label>Phone Number</Form.Label>
           <Form.Control
             required
@@ -58,22 +83,8 @@ function AppointmentForm() {
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} md="4" controlId="validationCustomUsername">
-          <Form.Label>Email</Form.Label>
-          <InputGroup hasValidation>
-            <InputGroup.Text id="inputGroupPrepend"></InputGroup.Text>
-            <Form.Control
-              type="text"
-              placeholder="Email@email.com"
-              aria-describedby="inputGroupPrepend"
-              required
-            />
-            <Form.Control.Feedback type="invalid">
-              Please enter your email.
-            </Form.Control.Feedback>
-          </InputGroup>
-        </Form.Group>
-      <Form.Group as={Col} md="4" controlId="validationCustom01">
+    
+      <Form.Group as={Col} md="4" controlId="validationCustom03">
           <Form.Label>Any Comments? Special Instructions?</Form.Label>
           <Form.Control
             required
@@ -85,7 +96,7 @@ function AppointmentForm() {
       </Form.Group>
       </Row>
       <Row className="mb-3">
-        <Form.Group as={Col} md="6" controlId="validationCustom03">
+        <Form.Group as={Col} md="6" controlId="validationCustom04">
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
             {service}
@@ -103,7 +114,7 @@ function AppointmentForm() {
       {serviceCheck ? ( // If true then have sitting 
       <div>
         <h1>Dog Sitting Selected</h1>
-        <Form.Group as={Col} md="4" controlId="validationCustom01">
+        <Form.Group as={Col} md="4" controlId="validationCustom05">
         <Form.Label>Start Date</Form.Label>
         <Form.Control
           required
@@ -111,7 +122,7 @@ function AppointmentForm() {
         />
         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} md="4" controlId="validationCustom01">
+        <Form.Group as={Col} md="4" controlId="validationCustom06">
         <Form.Label>End Date</Form.Label>
         <Form.Control
           required
@@ -120,7 +131,7 @@ function AppointmentForm() {
         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group as={Col} md="4" controlId="validationCustom01">
+        <Form.Group as={Col} md="4" controlId="validationCustom07">
           <Form.Label>Select Start Time</Form.Label>
           <TimePicker start="00:00" end="23:30" step={30} />
 
@@ -128,7 +139,7 @@ function AppointmentForm() {
 
         </Form.Group>
 
-        <Form.Group as={Col} md="4" controlId="validationCustom01">
+        <Form.Group as={Col} md="4" controlId="validationCustom08">
         <Form.Label>Select End Time</Form.Label>
             <TimePicker start="00:00" end="23:30" step={30} />
 
@@ -139,7 +150,7 @@ function AppointmentForm() {
       ) : ( // if false then have training
       <div>
       <h1>Dog / People Training Selected</h1>
-      <Form.Group as={Col} md="4" controlId="validationCustom01">
+      <Form.Group as={Col} md="4" controlId="validationCustom09">
       <Form.Label>Date</Form.Label>
       <Form.Control
         required
@@ -148,7 +159,7 @@ function AppointmentForm() {
       <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
       </Form.Group>
 
-      <Form.Group as={Col} md="4" controlId="validationCustom01">
+      <Form.Group as={Col} md="4" controlId="validationCustom10">
           <Form.Label>Select Time</Form.Label>
           <TimePicker start="00:00" end="23:30" step={30} />
 
