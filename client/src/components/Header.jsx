@@ -8,7 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 const Header = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setProfile] = useState('');
-  
+
   useEffect(() => {
 
     setLoggedIn(Auth.loggedIn());

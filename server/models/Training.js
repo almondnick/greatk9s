@@ -3,7 +3,14 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const trainingSchema = new Schema({
-    
+    phoneNumber: {
+        type: String,
+        required: true,
+    },
+    petName: {
+        type: String,
+        required: true,
+    },
     date: {
         type: Date,
         required: true
