@@ -3,11 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const trainingSchema = new Schema({
-    user: {
-        type: mongoose.schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
+    
     date: {
         type: Date,
         required: true
