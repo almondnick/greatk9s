@@ -22,11 +22,17 @@ export default Welcome;
 
 const Banner = styled.h1`
     font-family: baskerville, serif;
-    font-size: 600;
+    font-size: 48px;
     text-align: center;
     color: #111111;
     background-color: #92a8d1;
-`
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #111111;
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+`;
 
 const Wrapper = styled.div`
     background-color: #92a8d1;
