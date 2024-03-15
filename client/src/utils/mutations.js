@@ -28,9 +28,11 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_TRAINING = gql`
-  mutation addTraining($date: Date!, $time: String!, $comments: String) {
-    addTraining(date: $date, time: $time, comments: $comments) {
+  mutation addTraining($phoneNumber: String!, $petName: String!, $date: String!, $time: String!, $comments: String) {
+    addTraining(phoneNumber: $phoneNumber, petName: $petName, date: $date, time: $time, comments: $comments) {
       _id
+      phoneNumber
+      petName
       date
       time
       comments
@@ -51,5 +53,6 @@ export const ADD_SITTING = gql`
       comments
     }
   }
+
 `;
 

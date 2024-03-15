@@ -60,7 +60,29 @@ const resolvers = {
           }
           throw AuthenticationError;
         },
-    }
-  };
+        addTraining: async (parent, {phoneNumber, petName, date, time, comments}, context) => {
+          if(context.user) {
+            const train = await Training.create({
+              phoneNumber,
+              petName,
+              date,
+              time,
+              comments
+            });
+
+            await User.findOneAndUpdate(
+              { _id: context.user._id},
+              { $addToSet: { trainingApmts: train._id}}
+            );
+
+            return train;
+          }
+          throw AuthenticationError;
+          ('You must be logged in!');
+        }
+      }
+    };
+
+
 
 module.exports = resolvers;
