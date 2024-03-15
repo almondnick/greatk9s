@@ -39,9 +39,11 @@ export const ADD_TRAINING = gql`
 `;
 
 export const ADD_SITTING = gql`
-  mutation addSitting($appointmentStartDate: Date!, $appointmentEndDate: Date!, $startTime: String!, $endTime: String!, $comments: String) {
-    addSitting(appointmentStartDate: $appointmentStartDate, appointmentEndDate: $appointmentEndDate, startTime: $startTime, endTime: $endTime, comments: $comments) {
+  mutation addSitting($phoneNumber: String!, petName: String!, $appointmentStartDate: String!, $appointmentEndDate: String!, $startTime: String!, $endTime: String!, $comments: String) {
+    addSitting(phoneNumber: $phoneNumber, petName: $petName, appointmentStartDate: $appointmentStartDate, appointmentEndDate: $appointmentEndDate, startTime: $startTime, endTime: $endTime, comments: $comments) {
       _id
+      phoneNumber
+      petName
       appointmentStartDate
       appointmentEndDate
       startTime
@@ -51,13 +53,3 @@ export const ADD_SITTING = gql`
   }
 `;
 
-export const ADD_APPOINTMENT = gql`
-  mutation addAppointment($description: String!, $appointmentDate: Date!, $appointmentTime: String!) {
-    addAppointment(description: $description, appointmentDate: $appointmentDate, appointmentTime: $appointmentTime) {
-      _id
-      description
-      appointmentDate
-      appointmentTime
-    }
-  }
-`;

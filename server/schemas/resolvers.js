@@ -1,5 +1,5 @@
 // Resolvers
-const { User } = require('../models');
+const { User, Sitting, Training } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
@@ -37,9 +37,30 @@ const resolvers = {
       
             const token = signToken(user);
       
-            return { token, user: {username: user.username } };
+            return { token, user: { username: user.username } };
+        },
+        addSitting: async (parent, { phoneNumber, petName, appointmentStartDate, appointmentEndDate, startTime, endTime, comments }, context) => {
+          if(context.user) { 
+            const sit = await Sitting.create({
+              phoneNumber, 
+              petName, 
+              appointmentStartDate, 
+              appointmentEndDate, 
+              startTime, 
+              endTime, 
+              comments,
+            }); 
+
+            await User.findOneAndUpdate(
+              { _id: context.user._id },
+              { $addToSet: { sittingApmts: sit._id } }
+            );
+
+            return {sit};
           }
-        }
-      };
+          throw AuthenticationError;
+        },
+    }
+  };
 
 module.exports = resolvers;
