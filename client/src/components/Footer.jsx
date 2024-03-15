@@ -1,11 +1,44 @@
+import styled, { css } from 'styled-components'
 
-const Footer = () => {
+function Bottom(){
   
   return (
-    <footer>
-        <h2>Copyright @ 2024 Gold Team Rules!</h2>
-    </footer>
+    <Footer>
+        <Banner>Great K9s</Banner>
+          <Information>
+          <InformationRow>Great Canine St.</InformationRow>
+          <InformationRow>St. Louis, MO 63118</InformationRow>
+          <InformationRow>555-555-5555</InformationRow>
+          </Information>
+        <Copyright>Copyright @ 2024 Gold Team Rules!</Copyright>
+    </Footer>
   );
 };
 
-export default Footer;
+export default Bottom;
+
+const Footer = styled.footer`
+  font-family: nunito-sans, sans-serif;
+  text-align: center;
+  max-width: 90%;
+`
+const Banner = styled.h3`
+  border-top: 2px solid #111111;
+  text-align: center;
+  font-size: 20px;
+  margin: 20px;
+`
+const Information = styled.div`
+  line-height: 5px
+`
+const InformationRow = styled.p`
+  color: #808080;
+  font-size: 15px;
+`
+const Copyright = styled.h5`
+  color: #2b2738;
+  font-size: 10px;
+  padding: 15px;
+`
+
+const rootElement = document.getElementById("root");
