@@ -51,7 +51,7 @@ const Wrapper = styled.div`
 
 const Title = styled.h1`
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-family: baskerville, serif;
 `
 
