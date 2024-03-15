@@ -41,7 +41,7 @@ export const ADD_TRAINING = gql`
 `;
 
 export const ADD_SITTING = gql`
-  mutation addSitting($phoneNumber: String!, petName: String!, $appointmentStartDate: String!, $appointmentEndDate: String!, $startTime: String!, $endTime: String!, $comments: String) {
+  mutation addSitting($phoneNumber: String!, $petName: String!, $appointmentStartDate: String!, $appointmentEndDate: String!, $startTime: String!, $endTime: String!, $comments: String) {
     addSitting(phoneNumber: $phoneNumber, petName: $petName, appointmentStartDate: $appointmentStartDate, appointmentEndDate: $appointmentEndDate, startTime: $startTime, endTime: $endTime, comments: $comments) {
       _id
       phoneNumber
