@@ -12,11 +12,11 @@ const sittingSchema = new Schema({
         required: true,
     },
     appointmentStartDate: {
-        type: Date,
+        type: String,
         required: true,
     },
     appointmentEndDate: {
-        type: Date,
+        type: String,
         required: true,
     },
     startTime: {
