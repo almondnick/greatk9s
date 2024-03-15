@@ -29,7 +29,7 @@ const Header = () => {
 
   return (
       <Navbar bg="dark" data-bs-theme="dark">
-        <Container>
+        <Container fluid>
           <Navbar.Brand href="/">Great K9s</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
