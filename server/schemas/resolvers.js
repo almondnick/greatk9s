@@ -3,17 +3,14 @@ const { User, Sitting, Training } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
-    // Query: {
-    //   Training: async () => {
-    //     return User.findOne().populate('Training');
-    //   },
-    //   Sitting: async () => {
-    //     return User.findOne().populate('Sitting');
-    //   },
-    //   Appointment: async () => {
-    //     return User.findOne().populate('Appointment')
-    //   },
-    // },
+    Query: {
+      me: async (parent, args, context) => {
+        if (context.user) {
+          return User.findOne({ _id: context.user._id }).populate('sittingApmts').populate('trainingApmts');
+        }
+        throw AuthenticationError;
+      },
+    },
 
     Mutation: {
         addUser: async (parent, { firstName, lastName, email, password }) => {
