@@ -136,7 +136,7 @@ function AppointmentForm() {
         </Form.Group>
 
         <Form.Group as={Col} md="4" controlId="validationCustom07">
-          <Form.Label>Select Start Time</Form.Label>
+          <Form.Label>Select Drop-off Time</Form.Label>
           <TimePicker start="00:00" end="23:30" step={30} />
 
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -144,7 +144,7 @@ function AppointmentForm() {
         </Form.Group>
 
         <Form.Group as={Col} md="4" controlId="validationCustom08">
-        <Form.Label>Select End Time</Form.Label>
+        <Form.Label>Select Pickup Time</Form.Label>
             <TimePicker start="00:00" end="23:30" step={30} />
 
         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
@@ -164,8 +164,8 @@ function AppointmentForm() {
       </Form.Group>
 
       <Form.Group as={Col} md="4" controlId="validationCustom10">
-          <Form.Label>Select Time</Form.Label>
-          <TimePicker start="00:00" end="23:30" step={30} />
+          <Form.Label>Select Start Time</Form.Label>
+          <TimePicker start="09:00" end="17:00" step={60} />
 
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 

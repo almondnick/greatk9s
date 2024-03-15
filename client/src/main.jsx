@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import BookNow from './pages/BookNow';
 import Services from './pages/Services';
+import UserAppointments from './pages/UserAppointments.jsx';
 
 const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login />
+            },
+            {
+                path: '/userappointments',
+                element: <UserAppointments/>
             }
         ]
     }
