@@ -6,7 +6,7 @@ import Picture2 from '../../src/assets/dog-training.jpg';
 
 function ServiceCard() {
   return (
-    <>
+    <Wrapper>
       <StyledCard>
         <Card.Body>
           <StyledTitle>Dog Sitting Services</StyledTitle>
@@ -32,7 +32,7 @@ function ServiceCard() {
 
         </Card.Body>
       </StyledCard>
-    </>
+    </Wrapper>
   );
 }
 
@@ -41,9 +41,11 @@ export default ServiceCard;
 const StyledCard = styled(Card)`
   text-align: center;
   font-family: baskerville, serif;
-  margin: 20px auto;
-  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
   box-shadow: 1px 1px 10px #111111;
+  margin-bottom: 20px;
 `;
 
 const StyledPrice = styled(Card.Header)`
@@ -67,4 +69,9 @@ const Picture = styled.img`
   border: 2px solid #111111;
   border-radius: 5px;
   margin: 10px;
+`
+
+const Wrapper = styled.div`
+  padding: 20px;
+  background-color: #dedede;
 `

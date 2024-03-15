@@ -1,16 +1,26 @@
 import ServiceCard from "../components/ServiceCard";
-
+import styled from 'styled-components';
 
 const Services = () => {
   return (
-      <main>
-        <div>
-          <h1>Services</h1>
+      <Wrapper>
+          <Title>Services</Title>
           < ServiceCard />
-        </div>
-      </main>
+      </Wrapper>
     );
   };
   
   export default Services;
+
+  const Wrapper = styled.div`
+    background-color: #dedede;
+  `
+
+  const Title = styled.h1`
+    font-family: baskerville, serif;
+    font-size: 600;
+    text-align: center;
+    color: #111111;
+    padding-top: 20px;
+  `
   
