@@ -1,16 +1,20 @@
 import LoginForm from "../components/Login";
 import SignupForm from "../components/Signup";
+import styled from 'styled-components';
 
 const Login = () => {
     return (
-    <main>
-      <div>
-        <h1>Login or Sign Up</h1>
-        < LoginForm />
-        < SignupForm/>
-      </div>
-    </main>
+    <>
+      <Title>Login or Sign Up</Title>
+      <LoginForm/>
+      <SignupForm/>
+    </>
     )
 }
 
 export default Login;
+
+const Title = styled.h1`
+font-family: baskerville, serif;
+text-align: center;
+`
