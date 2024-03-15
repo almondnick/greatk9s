@@ -1,6 +1,4 @@
-# Great K9s
-
-# Great K9s
+# Gimme Paw
 
 ## Table of Contents
 

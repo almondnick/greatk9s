@@ -10,7 +10,7 @@ const Welcome = () => {
                 <Paragraph>We are dedicated to helping you train and care for your furry friend.</Paragraph>
                 <Hours>
                     Located at 69 Dawg St. in
-                    St. Louis, MO, 63118
+                    St. Louis, MO 63118
                 </Hours>
                 <Hours>Hours of Operation: 9 a.m. to 5 p.m</Hours>
                 <Paragraph>Explore our website to learn more about our services!</Paragraph>
