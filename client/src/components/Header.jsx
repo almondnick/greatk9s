@@ -28,22 +28,25 @@ const Header = () => {
   };
 
   return (
-      <Navbar bg="dark" data-bs-theme="dark">
+      <Navbar collapseOnSelect expand='md' bg="dark" data-bs-theme="dark">
         <Container fluid>
-          <Navbar.Brand href="/">Great K9s</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/services">Services</Nav.Link>
-            <Nav.Link href="/aboutus">About Us</Nav.Link>
-            <Nav.Link href="/booknow">Book Now</Nav.Link>
-            {loggedIn ? (<Nav.Link href="/userappointments">My Appointments</Nav.Link>) : (<></>)}
-            {loggedIn ? (
-              <Nav.Link onClick={logout}>Logout</Nav.Link>
-            ) : (
-              <Nav.Link href='/login'>Login / Sign Up</Nav.Link>
-            )}
+          <Navbar.Brand href="/">Gimme Paw</Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/services">Services</Nav.Link>
+              <Nav.Link href="/aboutus">About Us</Nav.Link>
+              <Nav.Link href="/booknow">Book Now</Nav.Link>
+              {loggedIn ? (<Nav.Link href="/userappointments">My Appointments</Nav.Link>) : (<></>)}
+              {loggedIn ? (
+                <Nav.Link onClick={logout}>Logout</Nav.Link>
+              ) : (
+                <Nav.Link href='/login'>Login / Sign Up</Nav.Link>
+              )}
           </Nav>
-        </Container>
+          </Navbar.Collapse>
+          </Container>
       </Navbar>
   );
 };
