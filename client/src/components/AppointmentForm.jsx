@@ -22,6 +22,10 @@ function AppointmentForm() {
 
     if(service === 'Sitting'){ // Fill out for Dog Sitting stuffs
 
+      
+
+
+
       console.log("Sitting");
     } 
 

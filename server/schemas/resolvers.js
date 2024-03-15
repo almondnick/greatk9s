@@ -37,8 +37,29 @@ const resolvers = {
       
             const token = signToken(user);
       
-            return { token, user: {username: user.username } };
-          },
+            return { token, user: { username: user.username } };
+        },
+        addSitting: async (parent, { phoneNumber, petName, appointmentStartDate, appointmentEndDate, startTime, endTime, comments }, context) => {
+          if(context.user) { 
+            const sit = await Sitting.create({
+              phoneNumber, 
+              petName, 
+              appointmentStartDate, 
+              appointmentEndDate, 
+              startTime, 
+              endTime, 
+              comments,
+            }); 
+
+            await User.findOneAndUpdate(
+              { _id: context.user._id },
+              { $addToSet: { sittingApmts: sit._id } }
+            );
+
+            return {sit};
+          }
+          throw AuthenticationError;
+        },
         addTraining: async (parent, {phoneNumber, petName, date, time, comments}, context) => {
           if(context.user) {
             const train = await Training.create({
@@ -62,6 +83,6 @@ const resolvers = {
       }
     };
 
-      
+
 
 module.exports = resolvers;

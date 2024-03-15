@@ -41,6 +41,8 @@ type Query {
 type Mutation {
     addUser (firstName: String!, lastName: String!, email: String!, password: String!, phoneNumber: String, petName: String): Auth
     login(email: String!, password: String!): Auth
+    addSitting(phoneNumber: String!, petName: String!, appointmentStartDate: String!, appointmentEndDate: String!, startTime: String!, endTime: String!, comments: String): Sitting
+
     addTraining(phoneNumber: String!, petName: String!, date: String!, time: String!, comments: String): Auth
 }
 `;
