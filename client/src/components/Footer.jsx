@@ -1,16 +1,16 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 function Bottom(){
   
   return (
     <Footer>
-        <Banner>Great K9s</Banner>
+        <Banner>Gimme Paw</Banner>
           <Information>
-          <InformationRow>Great Canine St.</InformationRow>
+          <InformationRow>Dawg St.</InformationRow>
           <InformationRow>St. Louis, MO 63118</InformationRow>
           <InformationRow>555-555-5555</InformationRow>
           </Information>
-        <Copyright>Copyright @ 2024 Gold Team Rules!</Copyright>
+        <Copyright>&copy;2024</Copyright>
     </Footer>
   );
 };
@@ -18,12 +18,11 @@ function Bottom(){
 export default Bottom;
 
 const Footer = styled.footer`
-  font-family: nunito-sans, sans-serif;
+  font-family: baskerville, serif;  
   text-align: center;
-  max-width: 90%;
+  border-top: 2px solid #111111;
 `
 const Banner = styled.h3`
-  border-top: 2px solid #111111;
   text-align: center;
   font-size: 20px;
   margin: 20px;
@@ -40,5 +39,3 @@ const Copyright = styled.h5`
   font-size: 10px;
   padding: 15px;
 `
-
-const rootElement = document.getElementById("root");
