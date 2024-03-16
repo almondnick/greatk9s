@@ -21,6 +21,12 @@ export const QUERY_ME = gql`
                 endTime
                 comments
             }
+            trainingApmts{
+                petName
+                date
+                time
+                comments
+            }
         }
     }
 `;
