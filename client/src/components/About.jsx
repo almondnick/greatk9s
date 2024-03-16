@@ -7,7 +7,7 @@ import nick from '../../src/assets/Nick.png';
 import peyton from '../../src/assets/Peyton.png';
 import sarah from '../../src/assets/Sarah.png';
 import devin from '../../src/assets/Sarah.png';
-import matt from '../../src/assets/Sarah.png';
+import matt from '../../src/assets/Matt.png';
 
 function About() {
   return (
@@ -68,7 +68,7 @@ function About() {
         <Card.Body>
           <Matt src={matt}></Matt>
           <Card.Text>
-            Matt! for now lol
+            Say hi to Matt! One of our dog walkers
           </Card.Text>
         </Card.Body>
       </StyledCard>
@@ -82,12 +82,14 @@ export default About;
 const Wrapper = styled.div`
  background-color: #92a8d1;
  font-family: baskerville, serif;
+ padding-bottom: 20px;
 `
 const Picture = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  border-bottom: 3px solid #111111;
 `
 const Title = styled.h2`
   text-align: center;
@@ -98,19 +100,24 @@ const Title = styled.h2`
 const Paragraph = styled.h4`
   text-align: center;
   font-size: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
 `
 const StyledCard = styled(Card)`
-  margin: 20px auto;
-  max-width: 50%;
+  margin: 30px auto;
+  margin-bottom: 20px;
+  width: 300px;
   text-align: center;
+  box-shadow: 1px 1px 10px #111111;
 `
 
 const Michael = styled.img`
   border-radius: 5px;
+  border: 2px solid #111111;
 `
 const Nick = styled.img`
-  height: 250px;
-  width: 200px;
+  height: 300px;
+  width: 225px;
   border-radius: 5px;
 `
 const Peyton = styled.img`
@@ -119,17 +126,17 @@ const Peyton = styled.img`
   border-radius: 5px;
 `
 const Sarah = styled.img`
-  height: 350px;
+  height: 300px;
   width: 200px;
   border-radius: 5px;
 `
 const Devin = styled.img`
-  height: 350px;
+  height: 300px;
   width: 200px;
   border-radius: 5px;
 `
 const Matt = styled.img`
-  height: 350px;
-  width: 200px;
+  height: 250px;
+  width: 250px;
   border-radius: 5px;
 `
