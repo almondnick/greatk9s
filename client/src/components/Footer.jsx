@@ -6,7 +6,7 @@ function Bottom(){
     <Footer>
         <Banner>Gimme Paw</Banner>
           <Information>
-          <InformationRow>Dawg St.</InformationRow>
+          <InformationRow>69 Dawg St.</InformationRow>
           <InformationRow>St. Louis, MO 63118</InformationRow>
           <InformationRow>555-555-5555</InformationRow>
           </Information>

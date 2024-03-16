@@ -38,9 +38,6 @@ function LoginForm(props) {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label htmlFor='email'>Email address</Form.Label>
         <StyledInput type="email" placeholder="Enter Your Email" name="email" id="email" onChange={handleChange} />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -53,7 +50,7 @@ function LoginForm(props) {
         </div>
       ) : null}
       <Button variant="dark" type="submit">
-        Submit
+        Login
       </Button>
       </StyledForm>
 
@@ -79,7 +76,7 @@ const StyledForm = styled(Form)`
   display: inline-block;
   border: 2px solid #111111;
   border-radius: 4px;
-  width: 40%;
+  width: 60%;
   background-color: #92a8d1;
   padding: 25px;
   box-shadow: 1px 1px 7px #111111;
@@ -87,7 +84,7 @@ const StyledForm = styled(Form)`
 `
 
 const StyledInput = styled(Form.Control)`
-  max-width: 50%;
+  max-width: 60%;
   text-align: center;
   margin-right: auto;
   margin-left: auto;

@@ -113,7 +113,6 @@ const StyledCard = styled(Card)`
 
 const Michael = styled.img`
   border-radius: 5px;
-  border: 2px solid #111111;
 `
 const Nick = styled.img`
   height: 300px;

@@ -51,7 +51,7 @@ const StyledCard = styled(Card)`
 const StyledPrice = styled(Card.Header)`
   background-color: #f8f9fa;
   font-weight: bold;
-  color: green;
+  color: #111111;
 `;
 
 const StyledTitle = styled(Card.Title)`

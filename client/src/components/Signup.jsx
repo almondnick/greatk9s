@@ -6,36 +6,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import styled from 'styled-components';
 
-// Styled components for SignupForm
-const Wrapper = styled.div`
-  text-align: center;
-`;
-
-const Title = styled.h2`
-  font-family: baskerville, serif;
-  text-decoration: underline;
-`;
-
-const StyledForm = styled(Form)`
-  font-family: baskerville, serif;
-  text-align: center;
-  display: inline-block;
-  border: 2px solid #111111;
-  border-radius: 4px;
-  width: 40%;
-  background-color: #92a8d1;
-  padding: 25px;
-  box-shadow: 1px 1px 7px #111111;
-  margin-bottom: 15px;
-`;
-
-const StyledInput = styled(Form.Control)`
-  max-width: 50%;
-  text-align: center;
-  margin-right: auto;
-  margin-left: auto;
-`;
-
 function SignupForm(props) {
   const [formState, setFormState] = useState({ firstName: '', lastName: '', email: '', password: '' });
   const [addUser, { error }] = useMutation(ADD_USER);
@@ -69,8 +39,8 @@ function SignupForm(props) {
 
   return (
     <Wrapper>
-      <Title>Signup</Title>
       <StyledForm onSubmit={handleFormSubmit}>
+        <Title>Signup</Title>
         <Form.Group className="mb-3" controlId="formBasicFirstName">
           <Form.Label htmlFor='firstName'>First Name:</Form.Label>
           <StyledInput type="text" placeholder="First" name="firstName" id="firstName" onChange={handleChange} />
@@ -92,7 +62,7 @@ function SignupForm(props) {
         </Form.Group>
 
         <Button variant="dark" type="submit">
-          Submit
+          Sign Up
         </Button>
       </StyledForm>
     </Wrapper>
@@ -100,3 +70,33 @@ function SignupForm(props) {
 }
 
 export default SignupForm;
+
+// Styled components for SignupForm
+const Wrapper = styled.div`
+  text-align: center;
+`;
+
+const Title = styled.h2`
+  font-family: baskerville, serif;
+  text-decoration: underline;
+`;
+
+const StyledForm = styled(Form)`
+  font-family: baskerville, serif;
+  text-align: center;
+  display: inline-block;
+  border: 2px solid #111111;
+  border-radius: 4px;
+  width: 60%;
+  background-color: #92a8d1;
+  padding: 25px;
+  box-shadow: 1px 1px 7px #111111;
+  margin-bottom: 15px;
+`;
+
+const StyledInput = styled(Form.Control)`
+  max-width: 60%;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+`;
