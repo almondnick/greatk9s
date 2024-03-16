@@ -37,7 +37,7 @@ const Header = () => {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/services">Services</Nav.Link>
               <Nav.Link href="/aboutus">About Us</Nav.Link>
-              <Nav.Link href="/booknow">Book Now</Nav.Link>
+              {loggedIn ? (<Nav.Link href="/booknow">Book Now</Nav.Link>) : (<></>)}
               {loggedIn ? (<Nav.Link href="/userappointments">My Appointments</Nav.Link>) : (<></>)}
               {loggedIn ? (
                 <Nav.Link onClick={logout}>Logout</Nav.Link>
