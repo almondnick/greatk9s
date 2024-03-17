@@ -1,43 +1,95 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
 import styled from 'styled-components';
+import { useMutation } from '@apollo/client';
+import { ADD_TRAINING } from '../utils/mutations';
+import { ADD_SITTING } from '../utils/mutations';
 
 import TimePicker from 'react-bootstrap-time-picker';
+import Auth from '../utils/auth';
+
 
 function AppointmentForm() {
+
+  const [addTraining, { errorTrain }] = useMutation(ADD_TRAINING);
+  const [addSitting, { errorSit }] = useMutation(ADD_SITTING);
+
   const [validated, setValidated] = useState(false);
 
   const [service, setService] = useState('Select Service'); // Service is selected on dropdown
   const [serviceCheck, setServiceCheck] = useState(true);
 
+  // Used for time pickers
+  const [pickUpTime, setPickUpTime] = useState('09:00 AM');
+  const [dropOffTime, setDropOffTime] = useState('09:00 AM');
+  const [trainingStartTime, setTrainingTime] = useState('09:00 AM');
 
-  const handleSubmit = (event) => {
+  // used for form
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [petName, setPetName] = useState('');
+  const [comments, setComments] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+  const [trainingDate, setTrainingDate] = useState('');
 
+  const handleSubmit = async (event) => {
 
+    event.preventDefault();
     console.log("FORM SUBMITTED!");
+    console.log("Service is: " + service);
 
     if(service === 'Sitting'){ // Fill out for Dog Sitting stuffs
 
+      console.log("Sitting here");
       
+      try {
+        const { data } = await addSitting({
+          variables: {
+            phoneNumber: phoneNumber,
+            petName: petName,
+            appointmentStartDate: startDate,
+            appointmentEndDate: endDate,
+            startTime: dropOffTime,
+            endTime: pickUpTime,
+            comments: comments,
+          },
+        });
+        } catch (err) {
+        console.error(err);
+      }
 
 
-
-      console.log("Sitting");
+      console.log("Sitting End");
     } 
 
 
     else if (service == "Training") { // Fill out for Dog Training stuffs
+      console.log("Training here");
 
+      try {
+        const { data } = await addTraining({
+          variables: {
+            phoneNumber: phoneNumber,
+            petName: petName,
+            date: trainingDate,
+            time: trainingStartTime,
+            comments: comments,
+          },
+        });
+        } catch (err) {
+        console.error(err);
+      }
 
+    console.log("Training End");
 
     }
 
 
-
+/* 
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -47,12 +99,12 @@ function AppointmentForm() {
     }
 
 
-    setValidated(true);
+    setValidated(true); */
 
 
+    console.log("END FORM");
 
-
-  };
+  }; // end form submission function
 
   const checkService = (e) => {
     setService(e.target.innerText);
@@ -64,6 +116,79 @@ function AppointmentForm() {
     }
   }
 
+  const handlePhoneNumChange = (e) => {
+    setPhoneNumber(e.target.value);
+  }
+
+  const handlePetNameChange = (e) => {
+    setPetName(e.target.value);
+  }
+
+  const handleCommentChange = (e) => {
+    setComments(e.target.value);
+  }
+
+  const handleStartDateChange = (e) => {
+    setStartDate(e.target.value);
+  }
+
+  const handleEndDateChange = (e) => {
+    setEndDate(e.target.value);
+  }
+
+  const handleTrainingDateChange = (e) => {
+    setTrainingDate(e.target.value);
+  }
+
+  const handleDropOffTimeChange = (e) => {
+
+    let realTimeNum = e / 60 / 60;
+  
+    if (realTimeNum < 12){
+      setDropOffTime(realTimeNum + ":00 AM")
+    }
+    else if(realTimeNum == 12){
+      setDropOffTime(realTimeNum + ":00 PM")
+    } else {
+      realTimeNum = realTimeNum - 12;
+      setDropOffTime(realTimeNum + ":00 PM")
+    }
+  }
+
+  const handlePickTimeChange = (e) => {
+    let realTimeNum = e / 60 / 60;
+  
+    if (realTimeNum < 12){
+      setPickUpTime(realTimeNum + ":00 AM")
+    }
+    else if(realTimeNum == 12){
+      setPickUpTime(realTimeNum + ":00 PM")
+    } else {
+      realTimeNum = realTimeNum - 12;
+      setPickUpTime(realTimeNum + ":00 PM")
+    }
+
+  }
+
+
+  const handleTrainingTimeChange = (e) => {
+    let realTimeNum = e / 60 / 60;
+  
+    if (realTimeNum < 12){
+      setTrainingTime(realTimeNum + ":00 AM")
+    }
+    else if(realTimeNum == 12){
+      setTrainingTime(realTimeNum + ":00 PM")
+    } else {
+      realTimeNum = realTimeNum - 12;
+      setTrainingTime(realTimeNum + ":00 PM")
+    }
+
+  }
+
+  //<h1>{phoneNumber} {petName} {comments} {startDate} {endDate}</h1> 
+  // <h1>Drop: {dropOffTime} Pick: {pickUpTime}</h1>
+
   return (
     <Wrapper>
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
@@ -74,7 +199,7 @@ function AppointmentForm() {
             required
             type="text"
             placeholder="Phone Number"
-            defaultValue="Phone Number"
+            onChange={handlePhoneNumChange}
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
@@ -84,7 +209,7 @@ function AppointmentForm() {
             required
             type="text"
             placeholder="Pet name"
-            defaultValue="Pet Name"
+            onChange={handlePetNameChange}
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
@@ -95,7 +220,7 @@ function AppointmentForm() {
             required
             type="text"
             placeholder="Enter comments here"
-            defaultValue="Enter comments here"
+            onChange={handleCommentChange}
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
       </Form.Group>
@@ -124,6 +249,7 @@ function AppointmentForm() {
         <Form.Control
           required
           type="date"
+          onChange={handleStartDateChange}
         />
         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
@@ -132,21 +258,22 @@ function AppointmentForm() {
         <Form.Control
           required
           type="date"
+          onChange={handleEndDateChange}
         />
         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group as={Col} md="4" controlId="validationCustom07">
+        <Form.Group as={Col} md="4">
           <Form.Label>Select Drop-off Time</Form.Label>
-          <TimePicker start="00:00" end="23:30" step={30} />
+          <TimePicker id='dropOff' start="09:00" end="17:00" step={60}  onChange={handleDropOffTimeChange} value={dropOffTime} />
 
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 
         </Form.Group>
 
-        <Form.Group as={Col} md="4" controlId="validationCustom08">
+        <Form.Group as={Col} md="4">
         <Form.Label>Select Pickup Time</Form.Label>
-            <TimePicker start="00:00" end="23:30" step={30} />
+            <TimePicker id="pickUp" start="09:00" end="17:00" step={60}  onChange={handlePickTimeChange} value={pickUpTime} />
 
         <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 
@@ -160,13 +287,14 @@ function AppointmentForm() {
       <Form.Control
         required
         type="date"
+        onChange={handleTrainingDateChange}
       />
       <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
       </Form.Group>
 
-      <Form.Group as={Col} md="4" controlId="validationCustom10">
+      <Form.Group as={Col} md="4">
           <Form.Label>Select Start Time</Form.Label>
-          <TimePicker start="09:00" end="17:00" step={60} />
+          <TimePicker start="09:00" end="17:00" step={60}  onChange={handleTrainingTimeChange} value={trainingStartTime} />
 
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 

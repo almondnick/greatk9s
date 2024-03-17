@@ -16,7 +16,7 @@ const Header = () => {
     if (Auth.loggedIn()) {
       const user = Auth.getProfile();
       setProfile(user.data.firstName); 
-      console.log(user)
+      console.log(user);
     }
   }, []);
 
