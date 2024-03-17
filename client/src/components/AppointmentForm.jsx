@@ -5,9 +5,13 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Dropdown from 'react-bootstrap/Dropdown';
 import styled from 'styled-components';
+
 import { useMutation } from '@apollo/client';
 import { ADD_TRAINING } from '../utils/mutations';
 import { ADD_SITTING } from '../utils/mutations';
+
+import photo from '../../src/assets/paw.jpg';
+
 
 import TimePicker from 'react-bootstrap-time-picker';
 import Auth from '../utils/auth';
@@ -191,6 +195,7 @@ function AppointmentForm() {
 
   return (
     <Wrapper>
+    <Pic src={photo}></Pic>
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
       <Row className="mb-3">
         <Form.Group as={Col} md="4" controlId="validationCustom01">
@@ -228,7 +233,7 @@ function AppointmentForm() {
       <Row className="mb-3">
         <Form.Group as={Col} md="6" controlId="validationCustom04">
           <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown.Toggle variant="primary" id="dropdown-basic">
             {service}
           </Dropdown.Toggle>
 
@@ -317,4 +322,16 @@ export default AppointmentForm;
 const Wrapper = styled.div`
   text-align: center;
   padding: 20px;
+  background-color: #92a8d1;
+`
+
+const Pic = styled.img`
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #111111;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    box-shadow: 1px 1px 10px #111111;
 `
