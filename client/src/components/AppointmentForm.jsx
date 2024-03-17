@@ -197,132 +197,146 @@ function AppointmentForm() {
   return (
     <Wrapper>
     <Pic src={photo}></Pic>
-    <StyledForm noValidate validated={validated} onSubmit={handleSubmit}>
-      <Title>Book Now</Title>
-      <Row className="mb-3">
-        <Form.Group as={Col} md="4" controlId="validationCustom02">
-          <Form.Label>Pet Name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="Pet name"
-            onChange={handlePetNameChange}
-          />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+    {Auth.loggedIn() ? (  // Check if user is logged in, if so display form
+      <StyledForm noValidate validated={validated} onSubmit={handleSubmit}>
+        <h1>Book An Appointment</h1>
+        <Row className="mb-3">
+          <Form.Group as={Col} md="4" controlId="validationCustom02">
+            <Form.Label>Pet Name:</Form.Label>
+            <Form.Control
+              required
+              type="text"
+              placeholder="Pet name"
+              onChange={handlePetNameChange}
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group as={Col} md="4" controlId="validationCustom01">
+            <Form.Label>Phone Number:</Form.Label>
+            <Form.Control
+              required
+              type="text"
+              placeholder="Phone Number"
+              onChange={handlePhoneNumChange}
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+        <Form.Group as={Col} md="4" controlId="validationCustom03">
+            <Form.Label>Any Comments? Special Instructions?</Form.Label>
+            <Form.Control
+              required
+              type="text"
+              placeholder="Enter comments here"
+              onChange={handleCommentChange}
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} md="4" controlId="validationCustom01">
-          <Form.Label>Phone Number</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="Phone Number"
-            onChange={handlePhoneNumChange}
-          />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>
-      <Form.Group as={Col} md="4" controlId="validationCustom03">
-          <Form.Label>Any Comments? Special Instructions?</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="Enter comments here"
-            onChange={handleCommentChange}
-          />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-      </Form.Group>
-      </Row>
-      <Row className="mb-3">
-        <Form.Group as={Col} md="6" controlId="validationCustom04">
-          <Form.Label>Choose Service</Form.Label>
-          <Dropdown>
-            <Dropdown.Toggle variant="primary" id="dropdown-basic">
-            {service}
-          </Dropdown.Toggle>
+        </Row>
+        <Row className="mb-3 justify-content-center">
+          <Form.Group as={Col} md="6" controlId="validationCustom04">
+            <Title>Select A Service</Title>
+            <Dropdown>
+              <Dropdown.Toggle size="lg" variant="primary" id="dropdown-basic">
+              {service}
+            </Dropdown.Toggle>
 
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1" onClick={checkService}>Sitting</Dropdown.Item>
-            <Dropdown.Item href="#/action-2" onClick={checkService}>Training</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+            <Dropdown.Menu>
+              <Dropdown.Item href="#/action-1" onClick={checkService}>Sitting</Dropdown.Item>
+              <Dropdown.Item href="#/action-2" onClick={checkService}>Training</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          </Form.Group>
+        </Row>
+
+
+        {serviceCheck ? ( // If true then have sitting 
+        <div>
+          <Title>Dog Sitting Selected</Title>
+          <Row className="mb-3 justify-content-center">
+            <Form.Group as={Col} md="4" controlId="validationCustom05">
+              <Form.Label>Start Date:</Form.Label>
+              <Form.Control
+                required
+                type="date"
+                onChange={handleStartDateChange}
+              />
+              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group as={Col} md="4" controlId="validationCustom06">
+              <Form.Label>End Date:</Form.Label>
+              <Form.Control
+                required
+                type="date"
+                onChange={handleEndDateChange}
+              />
+              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            </Form.Group>
+          </Row>
+
+          <Row className="mb-3 justify-content-center">
+            <Form.Group as={Col} md="4">
+              <Form.Label>Select Drop-off Time:</Form.Label>
+              <TimePicker id='dropOff' start="09:00" end="17:00" step={60}  onChange={handleDropOffTimeChange} value={dropOffTime} />
+
+              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+
+            </Form.Group>
+
+            <Form.Group as={Col} md="4">
+              <Form.Label>Select Pickup Time:</Form.Label>
+                  <TimePicker id="pickUp" start="09:00" end="17:00" step={60}  onChange={handlePickTimeChange} value={pickUpTime} />
+
+              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+
+            </Form.Group>
+          </Row>
+          </div>
+        ) : ( // if false then have training
+        <div>
+        <Title>Dog / People Training Selected</Title>
+        <Row className="mb-3 justify-content-center">
+          <Form.Group as={Col} md="4" controlId="validationCustom09">
+            <Form.Label>Date:</Form.Label>
+            <Form.Control
+              required
+              type="date"
+              onChange={handleTrainingDateChange}
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
+        </Row>
+
+        <Row className="mb-3 justify-content-center">
+          <Form.Group as={Col} md="4">
+              <Form.Label>Select Start Time:</Form.Label>
+              <TimePicker start="09:00" end="17:00" step={60}  onChange={handleTrainingTimeChange} value={trainingStartTime} />
+
+              <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+
+            </Form.Group>
+          </Row>
+        </div>
+        )}
+
+      
+        
+        <Button variant="dark" type="submit">Submit form</Button>
       
 
-
-      {serviceCheck ? ( // If true then have sitting 
-      <div>
-        <Title>Dog Sitting Selected</Title>
-        <Row className="mb-3">
-          <Form.Group as={Col} md="4" controlId="validationCustom05">
-            <Form.Label>Start Date</Form.Label>
-            <Form.Control
-              required
-              type="date"
-              onChange={handleStartDateChange}
-            />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group as={Col} md="4" controlId="validationCustom06">
-            <Form.Label>End Date</Form.Label>
-            <Form.Control
-              required
-              type="date"
-              onChange={handleEndDateChange}
-            />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-          </Form.Group>
-        </Row>
-
-        <Row className="mb-3">
-          <Form.Group as={Col} md="4">
-            <Form.Label>Select Drop-off Time</Form.Label>
-            <TimePicker id='dropOff' start="09:00" end="17:00" step={60}  onChange={handleDropOffTimeChange} value={dropOffTime} />
-
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-
-          </Form.Group>
-
-          <Form.Group as={Col} md="4">
-            <Form.Label>Select Pickup Time</Form.Label>
-                <TimePicker id="pickUp" start="09:00" end="17:00" step={60}  onChange={handlePickTimeChange} value={pickUpTime} />
-
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-
-          </Form.Group>
-        </Row>
-        </div>
-      ) : ( // if false then have training
-      <div>
-      <Title>Dog / People Training Selected</Title>
-      <Row className="mb-3">
-        <Form.Group as={Col} md="4" controlId="validationCustom09">
-          <Form.Label>Date</Form.Label>
-          <Form.Control
-            required
-            type="date"
-            onChange={handleTrainingDateChange}
-          />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-       </Form.Group>
-       </Row>
-
-       <Row className="mb-3">
-        <Form.Group as={Col} md="4">
-            <Form.Label>Select Start Time</Form.Label>
-            <TimePicker start="09:00" end="17:00" step={60}  onChange={handleTrainingTimeChange} value={trainingStartTime} />
-
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-
-          </Form.Group>
-        </Row>
-      </div>
-      )}
-
-     
-      </Row>
-      <Button variant="dark" type="submit">Submit form</Button>
+      </StyledForm>
+    ) : 
+    ( // If user is not logged in
     
-
-    </StyledForm>
+    <Row className="mb-3 justify-content-center">
+      <h2>Please Login or Sign Up to Book an Appoitment!</h2>
+      <div style= {{width:'200px'}}>
+        <StyledButton size='lg' variant="primary" href='/login'>Login / Sign Up</StyledButton>
+      </div>
+    </Row>
+    
+    
+    )}
+    
     </Wrapper>
   );
 }
@@ -360,4 +374,7 @@ const StyledForm = styled(Form)`
 const Title = styled.h3`
   font-family: baskerville, serif;
   text-decoration: underline;
+`
+const StyledButton = styled(Button)`
+margin-bottom: 15px;
 `
