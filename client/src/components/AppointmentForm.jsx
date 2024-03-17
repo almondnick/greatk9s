@@ -197,18 +197,9 @@ function AppointmentForm() {
   return (
     <Wrapper>
     <Pic src={photo}></Pic>
-    <Form noValidate validated={validated} onSubmit={handleSubmit}>
+    <StyledForm noValidate validated={validated} onSubmit={handleSubmit}>
+      <Title>Book Now</Title>
       <Row className="mb-3">
-        <Form.Group as={Col} md="4" controlId="validationCustom01">
-          <Form.Label>Phone Number</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="Phone Number"
-            onChange={handlePhoneNumChange}
-          />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>
         <Form.Group as={Col} md="4" controlId="validationCustom02">
           <Form.Label>Pet Name</Form.Label>
           <Form.Control
@@ -219,7 +210,16 @@ function AppointmentForm() {
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
         </Form.Group>
-    
+        <Form.Group as={Col} md="4" controlId="validationCustom01">
+          <Form.Label>Phone Number</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="Phone Number"
+            onChange={handlePhoneNumChange}
+          />
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        </Form.Group>
       <Form.Group as={Col} md="4" controlId="validationCustom03">
           <Form.Label>Any Comments? Special Instructions?</Form.Label>
           <Form.Control
@@ -250,71 +250,79 @@ function AppointmentForm() {
 
       {serviceCheck ? ( // If true then have sitting 
       <div>
-        <h1>Dog Sitting Selected</h1>
-        <Form.Group as={Col} md="4" controlId="validationCustom05">
-        <Form.Label>Start Date</Form.Label>
-        <Form.Control
-          required
-          type="date"
-          onChange={handleStartDateChange}
-        />
-        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group as={Col} md="4" controlId="validationCustom06">
-        <Form.Label>End Date</Form.Label>
-        <Form.Control
-          required
-          type="date"
-          onChange={handleEndDateChange}
-        />
-        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>
+        <Title>Dog Sitting Selected</Title>
+        <Row className="mb-3">
+          <Form.Group as={Col} md="4" controlId="validationCustom05">
+            <Form.Label>Start Date</Form.Label>
+            <Form.Control
+              required
+              type="date"
+              onChange={handleStartDateChange}
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+          <Form.Group as={Col} md="4" controlId="validationCustom06">
+            <Form.Label>End Date</Form.Label>
+            <Form.Control
+              required
+              type="date"
+              onChange={handleEndDateChange}
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+        </Row>
 
-        <Form.Group as={Col} md="4">
-          <Form.Label>Select Drop-off Time</Form.Label>
-          <TimePicker id='dropOff' start="09:00" end="17:00" step={60}  onChange={handleDropOffTimeChange} value={dropOffTime} />
+        <Row className="mb-3">
+          <Form.Group as={Col} md="4">
+            <Form.Label>Select Drop-off Time</Form.Label>
+            <TimePicker id='dropOff' start="09:00" end="17:00" step={60}  onChange={handleDropOffTimeChange} value={dropOffTime} />
 
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 
-        </Form.Group>
+          </Form.Group>
 
-        <Form.Group as={Col} md="4">
-        <Form.Label>Select Pickup Time</Form.Label>
-            <TimePicker id="pickUp" start="09:00" end="17:00" step={60}  onChange={handlePickTimeChange} value={pickUpTime} />
+          <Form.Group as={Col} md="4">
+            <Form.Label>Select Pickup Time</Form.Label>
+                <TimePicker id="pickUp" start="09:00" end="17:00" step={60}  onChange={handlePickTimeChange} value={pickUpTime} />
 
-        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
 
-        </Form.Group>
+          </Form.Group>
+        </Row>
         </div>
       ) : ( // if false then have training
       <div>
-      <h1>Dog / People Training Selected</h1>
-      <Form.Group as={Col} md="4" controlId="validationCustom09">
-      <Form.Label>Date</Form.Label>
-      <Form.Control
-        required
-        type="date"
-        onChange={handleTrainingDateChange}
-      />
-      <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-      </Form.Group>
-
-      <Form.Group as={Col} md="4">
-          <Form.Label>Select Start Time</Form.Label>
-          <TimePicker start="09:00" end="17:00" step={60}  onChange={handleTrainingTimeChange} value={trainingStartTime} />
-
+      <Title>Dog / People Training Selected</Title>
+      <Row className="mb-3">
+        <Form.Group as={Col} md="4" controlId="validationCustom09">
+          <Form.Label>Date</Form.Label>
+          <Form.Control
+            required
+            type="date"
+            onChange={handleTrainingDateChange}
+          />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+       </Form.Group>
+       </Row>
 
-        </Form.Group>
+       <Row className="mb-3">
+        <Form.Group as={Col} md="4">
+            <Form.Label>Select Start Time</Form.Label>
+            <TimePicker start="09:00" end="17:00" step={60}  onChange={handleTrainingTimeChange} value={trainingStartTime} />
+
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+
+          </Form.Group>
+        </Row>
       </div>
       )}
 
      
       </Row>
-      <Button type="submit">Submit form</Button>
+      <Button variant="dark" type="submit">Submit form</Button>
     
 
-    </Form>
+    </StyledForm>
     </Wrapper>
   );
 }
@@ -336,4 +344,20 @@ const Pic = styled.img`
     border-radius: 2px;
     margin-bottom: 15px;
     box-shadow: 1px 1px 10px #111111;
+`
+const StyledForm = styled(Form)`
+  font-family: baskerville, serif;
+  text-align: center;
+  display: inline-block;
+  border: 2px solid #111111;
+  border-radius: 4px;
+  width: 60%;
+  background-color: #92a8d1;
+  padding: 25px;
+  box-shadow: 1px 1px 7px #111111;
+  margin-bottom: 15px;
+`
+const Title = styled.h3`
+  font-family: baskerville, serif;
+  text-decoration: underline;
 `
