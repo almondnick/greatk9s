@@ -30,8 +30,8 @@ type Training {
 }
 
 type Auth {
-    token: ID
-    user: User
+    token: ID!
+    user: User!
 }
 
 type Query {
@@ -43,7 +43,7 @@ type Mutation {
     login(email: String!, password: String!): Auth
     addSitting(phoneNumber: String!, petName: String!, appointmentStartDate: String!, appointmentEndDate: String!, startTime: String!, endTime: String!, comments: String): Sitting
 
-    addTraining(phoneNumber: String!, petName: String!, date: String!, time: String!, comments: String): Auth
+    addTraining(phoneNumber: String!, petName: String!, date: String!, time: String!, comments: String): Training
 }
 `;
 
