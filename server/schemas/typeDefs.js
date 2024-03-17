@@ -12,6 +12,7 @@ type User {
 }
 
 type Sitting {
+    _id: ID
     phoneNumber: String
     petName: String
     appointmentStartDate: String
@@ -22,6 +23,7 @@ type Sitting {
 }
 
 type Training {
+    _id: ID
     phoneNumber: String
     petName: String
     date: String
