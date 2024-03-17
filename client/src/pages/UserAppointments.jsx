@@ -1,7 +1,9 @@
 import MyAppointments from "../components/MyAppointments";
 
 const UserAppointments = () => {
-    <MyAppointments/>
+    return (
+        <MyAppointments/>
+    );
 }
 
 export default UserAppointments;

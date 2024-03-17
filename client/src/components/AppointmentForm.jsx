@@ -46,6 +46,7 @@ function AppointmentForm() {
     console.log("FORM SUBMITTED!");
     console.log("Service is: " + service);
 
+    // Make sure user selected a service!
     if(service === 'Sitting'){ // Fill out for Dog Sitting stuffs
 
       console.log("Sitting here");
@@ -66,10 +67,10 @@ function AppointmentForm() {
         console.error(err);
       }
 
-
       console.log("Sitting End");
-    } 
+      window.location.replace("/userappointments");
 
+    } 
 
     else if (service == "Training") { // Fill out for Dog Training stuffs
       console.log("Training here");
@@ -89,11 +90,13 @@ function AppointmentForm() {
       }
 
     console.log("Training End");
+    window.location.replace("/userappointments");
 
+    } 
+    else {
+      alert("PLEASE SELECT A TYPE OF SERVICE!!!!");
     }
 
-
-/* 
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -103,7 +106,7 @@ function AppointmentForm() {
     }
 
 
-    setValidated(true); */
+    setValidated(true); 
 
 
     console.log("END FORM");
@@ -190,8 +193,6 @@ function AppointmentForm() {
 
   }
 
-  //<h1>{phoneNumber} {petName} {comments} {startDate} {endDate}</h1> 
-  // <h1>Drop: {dropOffTime} Pick: {pickUpTime}</h1>
 
   return (
     <Wrapper>
@@ -232,6 +233,7 @@ function AppointmentForm() {
       </Row>
       <Row className="mb-3">
         <Form.Group as={Col} md="6" controlId="validationCustom04">
+          <Form.Label>Choose Service</Form.Label>
           <Dropdown>
             <Dropdown.Toggle variant="primary" id="dropdown-basic">
             {service}
