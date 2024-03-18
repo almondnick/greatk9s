@@ -40,7 +40,7 @@ export default ServiceCard;
 
 const StyledCard = styled(Card)`
   text-align: center;
-  font-family: baskerville, serif;
+  font-family: helvetica neue, arial, sans-serif;
   margin-left: auto;
   margin-right: auto;
   width: 60%;

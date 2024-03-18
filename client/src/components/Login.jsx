@@ -66,12 +66,12 @@ const Wrapper = styled.div`
 `
 
 const Title = styled.h3`
-  font-family: baskerville, serif;
+  font-family: helvetica neue, arial, sans-serif;
   text-decoration: underline;
 `
 
 const StyledForm = styled(Form)`
-  font-family: baskerville, serif;
+  font-family: helvetica neue, arial, sans-serif;
   text-align: center;
   display: inline-block;
   border: 2px solid #111111;

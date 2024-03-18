@@ -52,7 +52,7 @@ const Wrapper = styled.div`
 const Title = styled.h1`
     text-align: center;
     margin-bottom: 20px;
-    font-family: baskerville, serif;
+    font-family: helvetica neue, arial, sans-serif;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 2px 2px 5px #111111;
@@ -66,6 +66,6 @@ const StyledCard = styled(Card)`
     display: block;
     margin-right: auto;
     margin-left: auto;
-    font-family: baskerville, serif;
+    font-family: helvetica neue, arial, sans-serif;
     box-shadow: 1px 1px 10px #111111;
 `;

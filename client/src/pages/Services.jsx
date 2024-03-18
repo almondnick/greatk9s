@@ -17,7 +17,7 @@ const Services = () => {
   `
 
   const Title = styled.h1`
-    font-family: baskerville, serif;
+    font-family: helvetica neue, arial, sans-serif;
     font-size: 600;
     text-align: center;
     color: #111111;

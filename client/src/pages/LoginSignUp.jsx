@@ -15,6 +15,6 @@ const Login = () => {
 export default Login;
 
 const Title = styled.h1`
-font-family: baskerville, serif;
+font-family: helvetica neue, arial, sans-serif;
 text-align: center;
 `

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import styled from 'styled-components';
-import photo from '../../src/assets/group-dog-pic.jpeg';
+import photo from '../../src/assets/group-dog-pic.jpg';
 import michael from '../../src/assets/Michael.png';
 import nick from '../../src/assets/Nick.png';
 import peyton from '../../src/assets/Peyton.png';
 import sarah from '../../src/assets/Sarah.png';
-import devin from '../../src/assets/Sarah.png';
+import devin from '../../src/assets/Devin.png';
 import matt from '../../src/assets/Matt.png';
 
 function About() {
@@ -59,7 +59,7 @@ function About() {
         <Card.Body>
           <Devin src={devin}></Devin>
           <Card.Text>
-            Devin! for now lol
+            This is Devin! He's here for his paw-sitive attitude
           </Card.Text>
         </Card.Body>
       </StyledCard>
@@ -81,7 +81,7 @@ export default About;
 
 const Wrapper = styled.div`
  background-color: #92a8d1;
- font-family: baskerville, serif;
+ font-family: helvetica neue, arial, sans-serif;
  padding-bottom: 20px;
 `
 const Picture = styled.img`
