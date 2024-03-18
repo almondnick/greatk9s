@@ -38,6 +38,11 @@ const StyledCardText = styled(Card.Text)`
   color: #666666;
 `;
 
+const NoAppointmentsText = styled.p`
+  text-align: center;
+  font-size: 1.2em;
+`;
+
 const CenteredButton = styled.div`
   display: flex;
   justify-content: center;
@@ -100,7 +105,7 @@ const MyAppointments = () => {
         </>
       ) : (
         <>
-          <NoAppointmentsText>You currently have no appointments.</NoAppointmentsText>
+          <NoAppointmentsText>You currently have no appointments. Click the button below to set your appointment!</NoAppointmentsText>
           <CenteredButton>
             <Link to="/BookNow">
               <Button variant="primary">Book Now</Button>
