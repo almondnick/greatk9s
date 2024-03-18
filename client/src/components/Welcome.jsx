@@ -62,6 +62,7 @@ const Pic = styled.img`
     margin-right: auto;
     border: 2px solid #111111;
     border-radius: 2px;
+    margin-top: 15px;
     margin-bottom: 15px;
     box-shadow: 1px 1px 10px #111111;
 `

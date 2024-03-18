@@ -36,12 +36,12 @@ function LoginForm(props) {
       <StyledForm onSubmit={handleFormSubmit}>
         <Title>Login</Title>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label htmlFor='email'>Email address</Form.Label>
+        <Form.Label htmlFor='email'>Email:</Form.Label>
         <StyledInput type="email" placeholder="Enter Your Email" name="email" id="email" onChange={handleChange} />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label htmlFor='pwd'>Password</Form.Label>
+        <Form.Label htmlFor='pwd'>Password:</Form.Label>
         <StyledInput type="password" placeholder="Enter Your Password" name="password" id="pwd" onChange={handleChange} />
       </Form.Group>
       {error ? (
