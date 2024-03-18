@@ -92,17 +92,34 @@ const Picture = styled.img`
   border-bottom: 3px solid #111111;
 `
 const Title = styled.h2`
-  text-align: center;
-  padding: 25px 20px 20px;
-  font-weight: bold;
-  color: #111111
+font-family: helvetica neue, arial, sans-serif;
+font-size: 40px;
+text-align: center;
+color: #111111;
+background-color: #92a8d1;
+padding: 10px;
+border-radius: 5px;
+box-shadow: 2px 2px 5px #111111;
+max-width: 30%;
+margin-top: .5%;
+margin-bottom: 1%;
+margin-left: auto;
+margin-right: auto;
 `
 const Paragraph = styled.h4`
-  text-align: center;
-  font-size: 20px;
-  margin-left: 30px;
-  margin-right: 30px;
-`
+font-family: helvetica neue, arial, sans-serif;
+font-size: 30px;
+text-align: center;
+color: #111111;
+background-color: #92a8d1;
+padding: 10px;
+border-radius: 5px;
+box-shadow: 2px 2px 5px #111111;
+max-width: 75%;
+margin-left: auto;
+margin-right: auto;
+`;
+
 const StyledCard = styled(Card)`
   margin: 30px auto;
   margin-bottom: 20px;

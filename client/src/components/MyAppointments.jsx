@@ -15,10 +15,13 @@ const Title = styled.h1`
   margin-bottom: 20px;
   font-size: 2em;
   color: #333333;
+  text-decoration: underline; /* Add underline */
+  text-align: center;
 `;
 
 const StyledCard = styled(Card)`
-  margin-bottom: 20px;
+  margin: 0 auto 20px; /* Center horizontally and add bottom margin */
+  max-width: 50%;
 `;
 
 const StyledCardHeader = styled(Card.Header)`
