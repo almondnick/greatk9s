@@ -360,7 +360,7 @@ const Pic = styled.img`
     box-shadow: 1px 1px 10px #111111;
 `
 const StyledForm = styled(Form)`
-  font-family: baskerville, serif;
+  font-family: helvetica neue, arial, sans-serif;
   text-align: center;
   display: inline-block;
   border: 2px solid #111111;
@@ -372,7 +372,7 @@ const StyledForm = styled(Form)`
   margin-bottom: 15px;
 `
 const Title = styled.h3`
-  font-family: baskerville, serif;
+  font-family: helvetica neue, arial, sans-serif;
   text-decoration: underline;
 `
 const StyledButton = styled(Button)`

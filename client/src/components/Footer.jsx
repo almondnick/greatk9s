@@ -18,7 +18,7 @@ function Bottom(){
 export default Bottom;
 
 const Footer = styled.footer`
-  font-family: baskerville, serif;  
+  font-family: helvetica neue, arial, sans-serif;  
   text-align: center;
   border-top: 2px solid #111111;
 `

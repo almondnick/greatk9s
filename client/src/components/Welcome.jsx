@@ -21,7 +21,7 @@ const Welcome = () => {
 export default Welcome;
 
 const Banner = styled.h1`
-    font-family: baskerville, serif;
+    font-family: helvetica neue, arial, sans-serif;
     font-size: 48px;
     text-align: center;
     color: #111111;
@@ -43,13 +43,13 @@ const Wrapper = styled.div`
 `
 
 const Paragraph = styled.h4`
-    font-family: baskerville, serif;
+    font-family: helvetica neue, arial, sans-serif;
     text-align: center;
     color: #111111;
 `
 
 const Hours = styled.h4`
-    font-family: baskerville, serif;
+    font-family: helvetica neue, arial, sans-serif;
     text-align: center;
     color: #111111;
     font-weight: bold;
