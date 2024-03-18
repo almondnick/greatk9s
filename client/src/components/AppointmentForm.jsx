@@ -366,7 +366,7 @@ const StyledForm = styled(Form)`
   border: 2px solid #111111;
   border-radius: 4px;
   width: 60%;
-  background-color: #92a8d1;
+  background-color: #f8f8f8;
   padding: 25px;
   box-shadow: 1px 1px 7px #111111;
   margin-bottom: 15px;
