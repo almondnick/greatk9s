@@ -328,7 +328,7 @@ function AppointmentForm() {
     ( // If user is not logged in
     
     <Row className="mb-3 justify-content-center">
-      <h2>Please Login or Sign Up to Book an Appoitment!</h2>
+      <h2>Please Login or Sign Up to Book an Appointment!</h2>
       <div style= {{width:'200px'}}>
         <StyledButton size='lg' variant="primary" href='/login'>Login / Sign Up</StyledButton>
       </div>

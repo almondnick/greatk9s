@@ -17,7 +17,7 @@ function ServiceCard() {
           <StyledButton variant="primary" href='/booknow'>Book Now</StyledButton>
           <StyledPrice>$50 PER DAY</StyledPrice>
         </Card.Body>
-        <Card.Footer className="text-muted">*Includes portuguese paw pampering</Card.Footer>
+        <Card.Footer className="text-muted">*Includes Portuguese Paw Pampering*</Card.Footer>
       </StyledCard>
 
       <StyledCard>
@@ -29,8 +29,8 @@ function ServiceCard() {
           </Card.Text>
           <StyledButton variant="primary" href='/booknow'>Book Now</StyledButton>
           <StyledPrice>$100 PER HOUR</StyledPrice>
-
         </Card.Body>
+        <Card.Footer className="text-muted">*Aggressive dogs must be muzzled at drop-off*</Card.Footer>
       </StyledCard>
     </Wrapper>
   );
