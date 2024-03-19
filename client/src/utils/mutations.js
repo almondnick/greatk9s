@@ -54,3 +54,28 @@ export const ADD_SITTING = gql`
 
 `;
 
+export const REMOVE_TRAINING = gql`
+  mutation removeTraining($trainingId: ID!) {
+    removeTraining(trainingId: $trainingId) {
+      phoneNumber
+      petName
+      date
+      time
+      comments
+    }
+  }
+`;
+
+export const REMOVE_SITTING = gql`
+  mutation removeSitting($sittingId: ID!) {
+    removeSitting(sittingId: $sittingId) {
+      phoneNumber
+      petName
+      appointmentStartDate
+      appointmentEndDate
+      startTime
+      endTime
+      comments
+    }
+  }
+`;

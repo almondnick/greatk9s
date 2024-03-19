@@ -76,6 +76,36 @@ const resolvers = {
           }
           throw AuthenticationError;
           ('You must be logged in!');
+        },
+        removeSitting: async (parent, { sittingId }, context) => {
+          if (context.user) {
+            const sit = await Sitting.findOneAndDelete({
+              _id: sittingId,
+            });
+    
+            await User.findOneAndUpdate(
+              { _id: context.user._id },
+              { $pull: { sittingApmts: sit._id } }
+            );
+    
+            return sit;
+          }
+          throw AuthenticationError;
+        },
+        removeTraining: async (parent, { trainingId }, context) => {
+          if (context.user) {
+            const train = await Training.findOneAndDelete({
+              _id: trainingId,
+            });
+    
+            await User.findOneAndUpdate(
+              { _id: context.user._id },
+              { $pull: { trainingApmts: train._id } }
+            );
+    
+            return train;
+          }
+          throw AuthenticationError;
         }
       }
     };
