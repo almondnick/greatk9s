@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import { QUERY_ME } from '../utils/queries';
 import styled from 'styled-components';
 import Auth from '../utils/auth';
+import { useMutation } from '@apollo/client';
+import { REMOVE_TRAINING } from '../utils/mutations';
+import { REMOVE_SITTING } from '../utils/mutations';
 
 const Wrapper = styled.main`
   background-color: #92a8d1;
@@ -55,6 +58,11 @@ const CenteredButton = styled.div`
 `;
 
 const MyAppointments = () => {
+
+  
+  const [deleteTraining, { error2 }] = useMutation(REMOVE_TRAINING);
+  const [deleteSitting, { error3 }] = useMutation(REMOVE_SITTING);
+
   const { loading, error, data } = useQuery(QUERY_ME);
 
   if (loading) return <p>Loading....</p>;
@@ -64,6 +72,40 @@ const MyAppointments = () => {
   const { trainingApmts, sittingApmts } = user;
 
   const hasAppointments = trainingApmts.length > 0 || sittingApmts.length > 0;
+
+  
+  const removeSitting = async(sitId) => {
+
+  
+    try {
+      const { data } = await deleteSitting({
+        variables: {
+          sittingId: sitId,
+        },
+      });
+      } catch (err) {
+      console.error(err);
+    }
+
+    window.location.reload();
+
+  }
+
+  const removeTraining = async(trainId) => {
+
+    try {
+      const { data } = await deleteTraining({
+        variables: {
+          trainingId: trainId,
+        },
+      });
+      } catch (err) {
+      console.error(err);
+    }
+
+    window.location.reload();
+
+  }
 
   return (
     <Wrapper>
@@ -83,6 +125,7 @@ const MyAppointments = () => {
                   Pick-up Time: {apmt.endTime}<br />
                   Comments: {apmt.comments}
                 </StyledCardText>
+                <Button variant="danger" onClick={() => removeSitting(apmt._id)}>Cancel Appointment</Button>
               </StyledCardBody>
             </StyledCard>
           ))}
@@ -99,6 +142,7 @@ const MyAppointments = () => {
                   Time: {apmt.time}<br />
                   Comments: {apmt.comments}
                 </StyledCardText>
+                <Button variant="danger" onClick={() => removeTraining(apmt._id)}>Cancel Appointment</Button>
               </StyledCardBody>
             </StyledCard>
           ))}

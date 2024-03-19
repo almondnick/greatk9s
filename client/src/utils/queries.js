@@ -8,23 +8,19 @@ export const QUERY_ME = gql`
             lastName
             email
             trainingApmts{
+                _id
                 petName
                 date
                 time
                 comments
             }
             sittingApmts{
+                _id
                 petName
                 appointmentStartDate
                 appointmentEndDate
                 startTime
                 endTime
-                comments
-            }
-            trainingApmts{
-                petName
-                date
-                time
                 comments
             }
         }
