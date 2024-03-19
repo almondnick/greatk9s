@@ -9,7 +9,7 @@ const Welcome = () => {
                 <Pic src={photo}></Pic>
                 <Paragraph>We are dedicated to helping you train and care for your furry friend.</Paragraph>
                 <Hours>
-                    Located at 69 Dawg St. in
+                    Located at 123 Dawg St. in
                     St. Louis, MO 63118
                 </Hours>
                 <Hours>Hours of Operation: 9 a.m. to 5 p.m</Hours>
@@ -25,7 +25,7 @@ const Banner = styled.h1`
     font-size: 48px;
     text-align: center;
     color: #111111;
-    background-color: #92a8d1;
+    background-color: #fefefe;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 2px 2px 5px #111111;
