@@ -11,10 +11,11 @@ import matt from '../../src/assets/Matt.png';
 function About() {
   return (
     <Wrapper>
+      <br></br>
       <Picture src={photo}></Picture>  
       <Title>About Us</Title>
       <Paragraph>
-      Here at Gimme Paw, we provide exceptional care and attention to your pet while with us. We offer doggy daycare and training services with a fun and safe envirnment by our staff. 
+      Bark! Here at Gimme Paw, we provide exceptional care and attention to your pet while with us. We offer doggy daycare and training services with a fun and safe envirnment by our staff. 
       Check out our staff below!
       </Paragraph>
 
@@ -57,18 +58,20 @@ const Wrapper = styled.div`
  padding-bottom: 20px;
 `
 const Picture = styled.img`
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  border-bottom: 3px solid #111111;
+    display: block;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 360px;
+    margin-bottom: 15px;
+    box-shadow: 1px 1px 10px #111111;
 `
 const Title = styled.h2`
 font-family: helvetica neue, arial, sans-serif;
 font-size: 40px;
 text-align: center;
 color: #111111;
-background-color: #92a8d1;
+background-color: #f8f8f8;
 padding: 10px;
 border-radius: 5px;
 box-shadow: 2px 2px 5px #111111;
@@ -77,9 +80,8 @@ margin-top: 20px;
 margin-left: auto;
 margin-right: auto;
 `
-const Paragraph = styled.h4`
+const Paragraph = styled.h2`
 font-family: helvetica neue, arial, sans-serif;
-font-size: 20px;
 text-align: center;
 color: #111111;
 padding: 15px;
@@ -89,33 +91,35 @@ max-width: 75%;
 margin-top: 25px;
 margin-left: auto;
 margin-right: auto;
+background-color: #f8f8f8;
+
 `;
 
 const GridContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 5px;
+
 `;
 
 const Card = styled.div`
-  border-radius: 5px;
+  border-radius: 15px;
   text-align: center;
   margin: 30px auto;
   margin-bottom: 20px;
-  width: 250px;
+  width: 60%;
   box-shadow: 1px 1px 10px #111111;
-  background-color: white;
+  background-color: #dedede;
 `;
 
-const Caption = styled.p`
+const Caption = styled.h3`
   margin-left: 20px;
   margin-right: 20px;
   text-align: center;
+  padding-bottom: 15px;
 `;
 
 const Image = styled.img`
-  height: 225px;
-  width: 200px;
-  border-radius: 5px;
+  height: 250px;
+  width: 225px;
+  border-radius: 15px;
   margin: 20px;
+  border: 2px solid black;
 `

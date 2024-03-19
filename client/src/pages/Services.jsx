@@ -22,5 +22,6 @@ const Services = () => {
     text-align: center;
     color: #111111;
     padding-top: 20px;
+    background-color: #fefefe;
   `
   
