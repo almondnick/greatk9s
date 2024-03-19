@@ -33,7 +33,7 @@ const Header = () => {
   `;
 
   return (
-    <Navbar collapseOnSelect expand='md' bg="dark" variant="dark">
+    <Navbar sticky='top' collapseOnSelect expand='md' bg="dark" variant="dark">
       <Container fluid>
         <Navbar.Brand href="/">
           <StyledLogo src={logo} alt="Logo" />
