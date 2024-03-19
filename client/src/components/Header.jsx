@@ -27,7 +27,7 @@ const Header = () => {
   };
 
   const StyledLogo = styled.img`
-    width: 50px; /* Adjust the width as needed */
+    width: 60px; /* Adjust the width as needed */
     height: auto;
     margin-right: 10px; /* Optional: Add some margin to the right */
   `;
