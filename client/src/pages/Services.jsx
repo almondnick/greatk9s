@@ -14,6 +14,7 @@ const Services = () => {
 
   const Wrapper = styled.div`
     background-color: #dedede;
+    padding-top: 15px;
   `
 
   const Title = styled.h1`
