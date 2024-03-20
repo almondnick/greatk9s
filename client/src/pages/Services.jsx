@@ -17,11 +17,17 @@ const Services = () => {
   `
 
   const Title = styled.h1`
-    font-family: helvetica neue, arial, sans-serif;
-    font-size: 600;
-    text-align: center;
-    color: #111111;
-    padding-top: 20px;
-    background-color: #fefefe;
-  `
+  font-family: helvetica neue, arial, sans-serif;
+  font-size: 48px; 
+  text-align: center;
+  color: #111111;
+  padding: 10px;
+  background-color: #fefefe;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #111111;
+  max-width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
   
